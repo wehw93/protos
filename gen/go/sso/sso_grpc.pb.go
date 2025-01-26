@@ -44,7 +44,7 @@ func NewAuthClient(cc grpc.ClientConnInterface) AuthClient {
 func (c *authClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponce, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterResponce)
-	err := c.cc.Invoke(ctx, Auth_Register_FullMethodName, in, out, cOpts...) 
+	err := c.cc.Invoke(ctx, Auth_Register_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
